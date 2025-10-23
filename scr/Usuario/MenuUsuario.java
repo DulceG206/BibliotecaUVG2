@@ -1,5 +1,9 @@
 package scr.Usuario;
 import javax.swing.*;
+
+import scr.Biblioteca;
+import scr.Registro;
+
 import java.awt.*;
 import java.util.*;
 import java.awt.event.*;
@@ -134,6 +138,44 @@ public class MenuUsuario extends JFrame {
 
             }
         });
+
+
+        etiquetaLogo1.addMouseListener(new MouseListener() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Biblioteca biblio = new Biblioteca("Biblioteca UVG");
+                biblio.setVisible(true);
+                dispose();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                // TODO Auto-generated method stub
+                throw new UnsupportedOperationException("Unimplemented method 'mousePressed'");
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                // TODO Auto-generated method stub
+                throw new UnsupportedOperationException("Unimplemented method 'mouseReleased'");
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                // TODO Auto-generated method stub
+                throw new UnsupportedOperationException("Unimplemented method 'mouseEntered'");
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                // TODO Auto-generated method stub
+                throw new UnsupportedOperationException("Unimplemented method 'mouseExited'");
+            }
+            
+        });
+        
+
         botoncambio.addActionListener(e -> cardBusqueda.show(panelContenedor, "Menu1"));
         botoncambio2.addActionListener(e -> cardBusqueda.show(panelContenedor, "Menu2"));
         botoncambio3.addActionListener(e -> cardBusqueda.show(panelContenedor, "Menu3"));

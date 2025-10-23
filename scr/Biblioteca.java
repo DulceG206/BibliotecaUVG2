@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
 
-
+import scr.Administrador.AdministradorGUI;
 import scr.Administrador.MenuAdmin;
 import scr.Usuario.*; 
 // import Usuario.MenuUsuario; // Removed or update this line if MenuUsuario is in a different package
@@ -107,7 +107,7 @@ public class Biblioteca extends JFrame {
      * aqui se escribe el codigo visual
      * =============================================================================
      */
-    Biblioteca(String Titulo) {
+    public Biblioteca(String Titulo) {
 
         // SetSize------------------------------------------------------
         labelNombre.setSize(200, 20);
@@ -219,7 +219,7 @@ public class Biblioteca extends JFrame {
                         menuUsuario.setVisible(true);
                         dispose();
                     }else{
-                        MenuAdmin menuUsuario = new MenuAdmin("Biblioteca UVG - Usuario");
+                        AdministradorGUI menuUsuario = new AdministradorGUI("Biblioteca UVG - Usuario");
                         menuUsuario.setVisible(true);
                         dispose();
                     }

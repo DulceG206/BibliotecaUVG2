@@ -15,7 +15,7 @@ public class AdministradorGUI extends JFrame {
     private final DefaultListModel<Libro> listModel = new DefaultListModel<>();
     private final JList<Libro> libroList = new JList<>(listModel);
 
-    public AdministradorGUI() {
+    public AdministradorGUI(String hola) {
         super("Administración - BibliotecaUVG");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(520, 360);
