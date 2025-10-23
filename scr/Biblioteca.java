@@ -6,7 +6,7 @@ import java.awt.event.*;
 import java.io.IOException;
 
 
-import Administrador.MenuAdmin;
+import scr.Administrador.MenuAdmin;
 import scr.Usuario.*; 
 // import Usuario.MenuUsuario; // Removed or update this line if MenuUsuario is in a different package
 // If MenuUsuario is in the default package or another package, update the import accordingly, e.g.:

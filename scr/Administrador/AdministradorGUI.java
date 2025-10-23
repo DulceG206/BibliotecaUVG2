@@ -1,7 +1,5 @@
-package scr;
+package scr.Administrador;
 import javax.swing.*;
-
-import scr.Administrador.Administrador;
 
 import java.awt.*;
 import java.awt.event.*;
