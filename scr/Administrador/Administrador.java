@@ -1,8 +1,29 @@
+<<<<<<< HEAD:scr/Administrador/Administrador.java
 package scr.Administrador;
 // ...existing code...
+=======
+>>>>>>> b276337d4177c363d77f8e8e3562b935146794a5:Administrador.java
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+// CORREGIDO: Clase Libro necesaria para compilar
+class Libro {
+    private String titulo;
+    
+    public Libro(String titulo) {
+        this.titulo = titulo;
+    }
+    
+    public String getTitulo() {
+        return titulo;
+    }
+    
+    @Override
+    public String toString() {
+        return titulo;
+    }
+}
 
 public class Administrador {
     private String nombre;
@@ -10,14 +31,12 @@ public class Administrador {
     private String contraseña;
     private final List<Libro> libros = new ArrayList<>();
 
-    // Constructor
     public Administrador(String nombre, String turno, String contraseña) {
         this.nombre = nombre;
         this.turno = turno;
         this.contraseña = contraseña;
     }
 
-    // Getters / Setters
     public String getContraseña() {
         return contraseña;
     }
@@ -42,19 +61,16 @@ public class Administrador {
         this.contraseña = contraseña;
     }
 
-    // Agrega un libro (por título) y lo retorna
     public Libro agregaLibro(String titulo) {
         Libro libro = new Libro(titulo);
         libros.add(libro);
         return libro;
     }
 
-    // Elimina un libro dado el objeto Libro (si existe)
     public boolean eliminarLibro(Libro libro) {
         return libros.remove(libro);
     }
 
-    // Elimina por título (elimina el primer match)
     public boolean eliminarLibroPorTitulo(String titulo) {
         for (Libro l : new ArrayList<>(libros)) {
             if (l.getTitulo().equalsIgnoreCase(titulo)) {
@@ -64,7 +80,6 @@ public class Administrador {
         return false;
     }
 
-    // Devuelve copia de la lista de libros
     public List<Libro> getLibros() {
         return Collections.unmodifiableList(new ArrayList<>(libros));
     }
