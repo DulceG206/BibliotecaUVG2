@@ -43,9 +43,6 @@ public class ControladorLogReg {
         List<String[]> baseDatos = leerDatos();
 
         for (int i = 0; i < baseDatos.size(); i++) {
-            System.out.print(inputUsuario + " " + inputContraseña);
-            System.out.println("Usuario: " + baseDatos.get(i)[0] + "  Contraseña: " + baseDatos.get(i)[1] + "  Extra: "
-                    + baseDatos.get(i)[2]);
             if (baseDatos.get(i)[0].equals(inputUsuario) && baseDatos.get(i)[1].equals(inputContraseña)) {
                 return true;
             }
@@ -57,9 +54,6 @@ public class ControladorLogReg {
         List<String[]> baseDatos = leerDatos();
 
         for (int i = 0; i < baseDatos.size(); i++) {
-            System.out.print(inputUsuario + " " + inputContraseña);
-            System.out.println("Usuario: " + baseDatos.get(i)[0] + "  Contraseña: " + baseDatos.get(i)[1] + "  Extra: "
-                    + baseDatos.get(i)[2]);
             if (baseDatos.get(i)[0].equals(inputUsuario) && baseDatos.get(i)[1].equals(inputContraseña)
                     && baseDatos.get(i)[2].equals("estudiante")) {
                 return true;
@@ -74,5 +68,15 @@ public class ControladorLogReg {
             writer.write((nombre + ":" + contraseña + ":estudiante" + System.lineSeparator()));
         } catch (IOException e) {
         }
+    }
+    public boolean usuarioRepetido(String usuario){
+        List<String[]> baseDatos = leerDatos();
+
+        for (int i = 0; i < baseDatos.size(); i++) {
+            if (usuario.equals(baseDatos.get(i)[0])) {
+                return true;
+            }
+        }
+        return false;
     }
 }

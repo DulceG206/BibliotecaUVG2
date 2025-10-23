@@ -174,19 +174,29 @@ public class Registro extends JFrame {
         buttonEntrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (String.valueOf(passwordFieldConfirmar.getPassword())
-                        .equals(String.valueOf(passwordFieldContraseña.getPassword()))) {
-                    controlador.guardarUsuario(textFieldNombre.getText(),
-                            String.valueOf(passwordFieldConfirmar.getPassword()));
-                    JOptionPane.showMessageDialog(null, "El usuario se ha registrado exitosamente",
-                            "Usuario registrado", JOptionPane.INFORMATION_MESSAGE);
-                    Biblioteca biblioteca = new Biblioteca("Biblioteca UVG");
-                    biblioteca.setVisible(true);
-                    dispose();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden, verifique la contraseña.",
+                if (controlador.usuarioRepetido(textFieldNombre.getText())) {
+
+                    JOptionPane.showMessageDialog(null, "El usuario ya existe, escoja otro nombre de usuario.",
                             "Error de Registro de Usuario",
                             JOptionPane.ERROR_MESSAGE);
+
+                }else{
+
+                    if (String.valueOf(passwordFieldConfirmar.getPassword())
+                            .equals(String.valueOf(passwordFieldContraseña.getPassword()))) {
+                        controlador.guardarUsuario(textFieldNombre.getText(),
+                                String.valueOf(passwordFieldConfirmar.getPassword()));
+                        JOptionPane.showMessageDialog(null, "El usuario se ha registrado exitosamente",
+                                "Usuario registrado", JOptionPane.INFORMATION_MESSAGE);
+                        Biblioteca biblioteca = new Biblioteca("Biblioteca UVG");
+                        biblioteca.setVisible(true);
+                        dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden, verifique la contraseña.",
+                                "Error de Registro de Usuario",
+                                JOptionPane.ERROR_MESSAGE);
+                    }
+
                 }
             }
         });
