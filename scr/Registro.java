@@ -1,23 +1,24 @@
 package scr;
+
 import java.util.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 public class Registro extends JFrame {
-    
-        // VARIABLES----------------------------------------------------
-        ControladorLogReg controlador = new ControladorLogReg();
-        JTextField textFieldNombre = new JTextField();
-        JPasswordField passwordFieldContraseña = new JPasswordField();
-        JPasswordField passwordFieldConfirmar = new JPasswordField();
-        JLabel labelNombre = new JLabel("Nombre");
-        JLabel labelContraseña = new JLabel("Contraseña");
-        JLabel labelConfirmarContraseña = new JLabel("Confirmar Contraseña");
-        JLabel labelDecoracion = new JLabel("________________________");
-        JCheckBox checkBoxMostrarContraseña = new JCheckBox("Mostrar Contraseña");
-        JButton buttonEntrar = new JButton("Confirmar");
-        JButton buttonRegistrar = new JButton("Iniciar Sesion");
+
+    // VARIABLES----------------------------------------------------
+    ControladorLogReg controlador = new ControladorLogReg();
+    JTextField textFieldNombre = new JTextField();
+    JPasswordField passwordFieldContraseña = new JPasswordField();
+    JPasswordField passwordFieldConfirmar = new JPasswordField();
+    JLabel labelNombre = new JLabel("Nombre");
+    JLabel labelContraseña = new JLabel("Contraseña");
+    JLabel labelConfirmarContraseña = new JLabel("Confirmar Contraseña");
+    JLabel labelDecoracion = new JLabel("________________________");
+    JCheckBox checkBoxMostrarContraseña = new JCheckBox("Mostrar Contraseña");
+    JButton buttonEntrar = new JButton("Confirmar");
+    JButton buttonRegistrar = new JButton("Iniciar Sesion");
 
     public Registro(String Titulo) {
         // FRAME--------------------------------------------------------
@@ -27,7 +28,7 @@ public class Registro extends JFrame {
         this.setMinimumSize(new Dimension(250, 300));
         this.setLayout(null);
 
-        //IMAGENES---------------------------------------------------
+        // IMAGENES---------------------------------------------------
         ImageIcon originalLogo = new ImageIcon("img/logoBiblioteca.png");
         Image imagenEscaladaLogo = originalLogo.getImage().getScaledInstance(500, 150, Image.SCALE_SMOOTH);
         ImageIcon imagenFinalLogo = new ImageIcon(imagenEscaladaLogo);
@@ -72,7 +73,7 @@ public class Registro extends JFrame {
             passwordFieldConfirmar.setLocation(
                     centroX - (int) Math.round(passwordFieldConfirmar.getSize().getWidth() / 2),
                     centroY + 80 - (int) Math.round(passwordFieldConfirmar.getSize().getHeight() / 2));
-                
+
             labelDecoracion.setLocation(
                     centroX - (int) Math.round(labelDecoracion.getSize().getWidth() / 2),
                     centroY - 210 - (int) Math.round(labelDecoracion.getSize().getHeight() / 2));
@@ -95,7 +96,7 @@ public class Registro extends JFrame {
         buttonRegistrar.setSize(170, 32);
         etiquetaLogo.setSize(500, 150);
 
-         // LOCATION-----------------------------------------------------
+        // LOCATION-----------------------------------------------------
         centrarTodo.run();
 
         // ESTILO------------------------------------------------------
@@ -132,7 +133,7 @@ public class Registro extends JFrame {
         // Extra<<<
         labelDecoracion.setHorizontalAlignment(SwingConstants.CENTER);
 
-        //ADD------------------------------------------------------------
+        // ADD------------------------------------------------------------
         this.add(labelNombre);
         this.add(labelContraseña);
         this.add(labelConfirmarContraseña);
@@ -173,19 +174,25 @@ public class Registro extends JFrame {
         buttonEntrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (String.valueOf(passwordFieldConfirmar.getPassword()).equals(String.valueOf(passwordFieldContraseña.getPassword()))) {
-                    controlador.guardarUsuario(textFieldNombre.getText(),String.valueOf(passwordFieldConfirmar.getPassword()));
+                if (String.valueOf(passwordFieldConfirmar.getPassword())
+                        .equals(String.valueOf(passwordFieldContraseña.getPassword()))) {
+                    controlador.guardarUsuario(textFieldNombre.getText(),
+                            String.valueOf(passwordFieldConfirmar.getPassword()));
+                    JOptionPane.showMessageDialog(null, "El usuario se ha registrado exitosamente",
+                            "Usuario registrado", JOptionPane.INFORMATION_MESSAGE);
+                    Biblioteca biblioteca = new Biblioteca("Biblioteca UVG");
+                    biblioteca.setVisible(true);
+                    dispose();
                 } else {
-                    JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden.", "Error de Registro de Usuario",
+                    JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden, verifique la contraseña.",
+                            "Error de Registro de Usuario",
                             JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
 
-
         // VISIBLE------------------------------------------------------
 
-        
     }
-    
+
 }

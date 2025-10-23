@@ -1,8 +1,5 @@
-<<<<<<< HEAD:scr/Administrador/Administrador.java
+
 package scr.Administrador;
-// ...existing code...
-=======
->>>>>>> b276337d4177c363d77f8e8e3562b935146794a5:Administrador.java
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

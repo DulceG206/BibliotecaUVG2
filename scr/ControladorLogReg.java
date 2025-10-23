@@ -72,9 +72,7 @@ public class ControladorLogReg {
 
         try (FileWriter writer = new FileWriter("BaseDatos.txt", true)) {
             writer.write((nombre + ":" + contraseña + ":estudiante" + System.lineSeparator()));
-            System.out.println("XDXDXDXDDDDDDDDDDDDDDDDDD");
         } catch (IOException e) {
-            System.out.println("error: " + e.getMessage());
         }
     }
 }
