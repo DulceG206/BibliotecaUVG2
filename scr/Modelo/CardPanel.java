@@ -4,12 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 
 class CardPanel extends JPanel {
-    private JLabel titulo;
+    public JLabel titulo;
     
     public CardPanel(String imagen, String texto, Color color) {
-        setBackground(color);
-        setPreferredSize(new Dimension(130, 140)); 
-        setLayout(new BorderLayout());
+        this.setBackground(color);
+        this.setPreferredSize(new Dimension(130, 140)); 
+        this.setLayout(new BorderLayout());
 
         ImageIcon originalLogo = new ImageIcon("img/"+imagen);
         Image imagenEscaladaLogo = originalLogo.getImage().getScaledInstance(90, 100, Image.SCALE_SMOOTH);
@@ -18,8 +18,8 @@ class CardPanel extends JPanel {
 
         titulo = new JLabel(texto, JLabel.CENTER);
         titulo.setFont(new Font("Arial", Font.PLAIN, 16));
-        add(etiquetaLogo, BorderLayout.NORTH);
-        add(titulo, BorderLayout.CENTER);
+        this.add(etiquetaLogo, BorderLayout.NORTH);
+        this.add(titulo, BorderLayout.CENTER);
     }
 
     public void setTitulo(String texto) {

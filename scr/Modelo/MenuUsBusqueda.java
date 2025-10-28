@@ -6,6 +6,7 @@ import scr.Vista.Biblioteca;
 
 import java.awt.*;
 import java.util.*;
+import java.util.List;
 import java.awt.event.*;
 
 public class MenuUsBusqueda extends JPanel {
@@ -17,7 +18,7 @@ public class MenuUsBusqueda extends JPanel {
     JButton buttonFiltrar = new JButton("Filtrar");
     JButton buttonFinal = new JButton("Botón al Final");
 
-    MenuUsBusqueda() {
+    public MenuUsBusqueda() {
 
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS)); // layaout de lista
 
@@ -54,8 +55,9 @@ public class MenuUsBusqueda extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 controladorBusqueda control = new controladorBusqueda();
-                String[][] libros = control.leerLibros();
+                List<String[][]> libros = control.leerLibros();
                 if (libros != null) {
+                    /* 
                     for (int i = 0; i < libros.length; i++) {
                         String[] fila = libros[i];
                         if (fila == null) continue;
@@ -63,6 +65,7 @@ public class MenuUsBusqueda extends JPanel {
                             System.out.println("libros[" + i + "][" + j + "] = " + fila[j]);
                         }
                     }
+                        */
                 }
             }
         });

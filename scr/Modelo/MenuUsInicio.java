@@ -23,7 +23,7 @@ public class MenuUsInicio extends JPanel {
 
     };
 
-    MenuUsInicio(JPanel panelContenedor, JFrame frameContenedor) {
+    public MenuUsInicio(JPanel panelContenedor, JFrame frameContenedor) {
         textFieldBuscador.setPreferredSize(new Dimension(400, 40));
         buttonBuscar.setPreferredSize(new Dimension(90, 40));
         buttonBuscar.setFont(new Font("Arial", Font.PLAIN, 16));

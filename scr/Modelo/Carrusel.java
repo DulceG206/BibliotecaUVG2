@@ -7,14 +7,14 @@ import java.awt.*;
 public class Carrusel extends JPanel {
 
     //VARIABLES----------------------------------------------------
-    private CardPanel panelContenedor1 = new CardPanel("psicolo.jpg","Psicologia", Color.darkGray);
-    private CardPanel panelContenedor2 = new CardPanel("ciencias.jpg","Ciencias", Color.darkGray);
-    private CardPanel panelContenedor3 = new CardPanel("aventura.jpeg","Aventura", Color.darkGray);
-    private CardPanel panelContenedor4 = new CardPanel("tecno.png","Tecnologia", Color.darkGray);
-    private CardPanel panelContenedor5 = new CardPanel("mate.jpg","Matematicas", Color.darkGray);
-    private CardPanel panelContenedor6 = new CardPanel("ficcion.png","Ciencia ficcion", Color.darkGray);
-    private CardPanel panelContenedor7 = new CardPanel("historia.png","Historia", Color.darkGray);
-    private CardPanel panelContenedor8 = new CardPanel("lenguas.jpg","Lenguas", Color.darkGray);
+    public CardPanel panelContenedor1 = new CardPanel("psicolo.jpg","Psicologia", Color.darkGray);
+    public CardPanel panelContenedor2 = new CardPanel("ciencias.jpg","Ciencias", Color.darkGray);
+    public CardPanel panelContenedor3 = new CardPanel("aventura.jpeg","Aventura", Color.darkGray);
+    public CardPanel panelContenedor4 = new CardPanel("tecno.png","Tecnologia", Color.darkGray);
+    public CardPanel panelContenedor5 = new CardPanel("mate.jpg","Matematicas", Color.darkGray);
+    public CardPanel panelContenedor6 = new CardPanel("ficcion.png","Ciencia ficcion", Color.darkGray);
+    public CardPanel panelContenedor7 = new CardPanel("historia.png","Historia", Color.darkGray);
+    public CardPanel panelContenedor8 = new CardPanel("lenguas.jpg","Lenguas", Color.darkGray);
 
 
     public Carrusel() {

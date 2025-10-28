@@ -9,7 +9,7 @@ import java.awt.*;
 
 */
 public class LibrosLista extends JPanel{
-    LibrosLista(String imagen){
+    public LibrosLista(String imagen){
 
         setBounds(10,0,700,2);
         setBackground(Color.GRAY);
