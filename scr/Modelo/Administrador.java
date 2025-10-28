@@ -1,5 +1,5 @@
 
-package scr.Administrador;
+package scr.Modelo;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

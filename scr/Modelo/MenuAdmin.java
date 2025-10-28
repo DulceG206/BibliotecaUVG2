@@ -1,4 +1,4 @@
-package scr.Administrador;
+package scr.Modelo;
 
 import javax.swing.JFrame;
 
