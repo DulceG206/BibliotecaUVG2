@@ -9,7 +9,7 @@ import java.awt.*;
 
 */
 public class LibrosLista extends JPanel{
-    public LibrosLista(String imagen){
+    public LibrosLista(String imagen, String titulo){
 
         setBounds(10,0,700,2);
         setBackground(Color.GRAY);
@@ -22,11 +22,11 @@ public class LibrosLista extends JPanel{
         JLabel etiquetaLogo = new JLabel(imagenFinalLogo);
         etiquetaLogo.setSize(170, 110);
 
-        JLabel titulo = new JLabel("Título del libro");
+        JLabel tituloL = new JLabel("titulo");
         JButton boton = new JButton("Abrir");
         
         add(etiquetaLogo, BorderLayout.PAGE_START);
-        add(titulo, BorderLayout.CENTER);
+        add(tituloL, BorderLayout.CENTER);
         add(boton, BorderLayout.SOUTH);
     }
 }

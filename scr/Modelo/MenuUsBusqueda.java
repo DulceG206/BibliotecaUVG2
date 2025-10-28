@@ -1,4 +1,6 @@
 package scr.Modelo;
+
+
 import javax.swing.*;
 
 import scr.Controlador.controladorBusqueda;
@@ -42,7 +44,7 @@ public class MenuUsBusqueda extends JPanel {
         // >>>>
         // add libros <<<<<
         for (int i = 1; i <= 20; i++) {
-            this.add(new LibrosLista("default.png"));
+            this.add(new LibrosLista("default.png","default"));
             this.add(Box.createVerticalStrut(20)); // Espacio
         }
         // >>>>
@@ -54,19 +56,49 @@ public class MenuUsBusqueda extends JPanel {
         buttonBuscar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+
+
+
+
+                            
+
+                 
+                Component[] components = this.getComponents
+                java.util.List<Component> toRemove = new ArrayList<>();
+                
+                for (Component comp : components) {
+                    if (comp instanceof LibrosLista) {
+                        toRemove.add(comp);
+                    }
+                }
+                for (Component comp : toRemove) {
+                    remove(comp);
+                }
+                
+                // ACTUALIZAR
+                revalidate();
+                repaint();
+
+                
                 controladorBusqueda control = new controladorBusqueda();
                 List<String[][]> libros = control.leerLibros();
                 if (libros != null) {
-                    /* 
-                    for (int i = 0; i < libros.length; i++) {
-                        String[] fila = libros[i];
-                        if (fila == null) continue;
-                        for (int j = 0; j < fila.length; j++) {
-                            System.out.println("libros[" + i + "][" + j + "] = " + fila[j]);
+                    for (int i = 0; i < libros.size(); i++) {
+                        String[][] libro = libros.get(i);
+                        if (libro == null) continue;
+                        for (int r = 0; r < libro.length; r++) {
+                            String[] fila = libro[r];
+                            if (fila == null) continue;
+                            for (int c = 0; c < fila.length; c++) {
+                                System.out.println("libros[" + i + "][" + r + "][" + c + "] = " + fila[c]);
+                            }
                         }
                     }
-                        */
                 }
+
+
+
             }
         });
 
