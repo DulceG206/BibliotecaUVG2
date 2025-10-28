@@ -1,4 +1,4 @@
-package scr;
+package scr.Controlador;
 import java.io.*;
 import java.util.*;
 

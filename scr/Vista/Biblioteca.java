@@ -1,4 +1,4 @@
-package scr;
+package scr.Vista;
 import java.util.*;
 import javax.swing.*;
 import java.awt.*;
@@ -7,13 +7,11 @@ import java.io.IOException;
 
 import scr.Administrador.AdministradorGUI;
 import scr.Administrador.MenuAdmin;
-import scr.Usuario.*; 
-// import Usuario.MenuUsuario; // Removed or update this line if MenuUsuario is in a different package
-// If MenuUsuario is in the default package or another package, update the import accordingly, e.g.:
-// import menu.MenuUsuario;
-// Or remove the import if not needed and ensure MenuUsuario.java is in the same directory or package.
+import scr.Controlador.ControladorLogReg;
+import scr.Vista.*;
+import scr.Modelo.*;
+import scr.Controlador.*;
 
- 
 import com.formdev.flatlaf.FlatDarkLaf;
 
  

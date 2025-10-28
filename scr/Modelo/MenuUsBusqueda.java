@@ -1,5 +1,9 @@
-package scr.Usuario;
+package scr.Modelo;
 import javax.swing.*;
+
+import scr.Controlador.controladorBusqueda;
+import scr.Vista.Biblioteca;
+
 import java.awt.*;
 import java.util.*;
 import java.awt.event.*;
@@ -46,6 +50,22 @@ public class MenuUsBusqueda extends JPanel {
         // -------------------------------
 
         // FIN PANEL BUSQUEDA--------------------------------
+        buttonBuscar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controladorBusqueda control = new controladorBusqueda();
+                String[][] libros = control.leerLibros();
+                if (libros != null) {
+                    for (int i = 0; i < libros.length; i++) {
+                        String[] fila = libros[i];
+                        if (fila == null) continue;
+                        for (int j = 0; j < fila.length; j++) {
+                            System.out.println("libros[" + i + "][" + j + "] = " + fila[j]);
+                        }
+                    }
+                }
+            }
+        });
 
     }
 

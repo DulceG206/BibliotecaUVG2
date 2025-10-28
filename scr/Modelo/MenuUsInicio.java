@@ -1,4 +1,4 @@
-package scr.Usuario;
+package scr.Modelo;
 import javax.swing.*;
 
 import java.awt.*;

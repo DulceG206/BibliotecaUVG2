@@ -1,7 +1,10 @@
-package scr;
+package scr.Vista;
 
 import java.util.*;
 import javax.swing.*;
+
+import scr.Controlador.ControladorLogReg;
+
 import java.awt.*;
 import java.awt.event.*;
 

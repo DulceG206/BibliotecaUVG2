@@ -1,12 +1,15 @@
-package scr.Usuario;
+package scr.Vista;
 import javax.swing.*;
 
-import scr.Biblioteca;
-import scr.Registro;
-
+import scr.Modelo.MenuUsBusqueda;
+import scr.Modelo.MenuUsInicio;
+import scr.Vista.*;
+import scr.Modelo.*;
+import scr.Controlador.*;
 import java.awt.*;
 import java.util.*;
 import java.awt.event.*;
+import scr.Modelo.MenuUsBusqueda;
 
 
 public class MenuUsuario extends JFrame {
