@@ -1,0 +1,8 @@
+leon:pulpo:estudiante
+Carlos:xdxdxd:estudiante
+andres:f:administrador
+alfredo:simon:estudiante
+edwin:luis:estudiante
+omg:lol:estudiante
+sapo:sis:estudiante
+alcachofa:rio:estudiante
