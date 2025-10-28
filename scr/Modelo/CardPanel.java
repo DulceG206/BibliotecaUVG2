@@ -10,7 +10,7 @@ class CardPanel extends JPanel {
         this.setBackground(color);
         this.setPreferredSize(new Dimension(130, 140)); 
         this.setLayout(new BorderLayout());
-
+        //comentario totalmente importante
         ImageIcon originalLogo = new ImageIcon("img/"+imagen);
         Image imagenEscaladaLogo = originalLogo.getImage().getScaledInstance(90, 100, Image.SCALE_SMOOTH);
         ImageIcon imagenFinalLogo = new ImageIcon(imagenEscaladaLogo);
