@@ -11,7 +11,6 @@ import java.util.*;
 import java.awt.event.*;
 import scr.Modelo.MenuUsBusqueda;
 
-
 public class MenuUsuario extends JFrame {
 
     // VARIABLES----------------------------------------------------
@@ -36,6 +35,17 @@ public class MenuUsuario extends JFrame {
     // panel derecho - menu de busqueda
     MenuUsBusqueda menubusqueda = new MenuUsBusqueda();
     JScrollPane scrollPane = new JScrollPane(menubusqueda);// colocar barra escroleable para ver mas lista
+
+    // 🔹 agregado: panel de libros apartados
+    JPanel panelApartados = new JPanel(new BorderLayout());
+    JTextArea areaApartados = new JTextArea();
+    JScrollPane scrollApartados = new JScrollPane(areaApartados);
+
+    // 🔹 agregado: lista de libros disponibles (normalmente esto lo traería de un modelo o base de datos)
+    private java.util.List<Libro> listaLibros = new ArrayList<>();
+
+    // 🔹 agregado: usuario actual (en un programa real vendría del login)
+    private Usuario usuarioActual;
 
     // Emmmmm pos no quiten el runnable alli miro si lo quito :v
     Runnable centrarTodo = () -> {
@@ -109,7 +119,6 @@ public class MenuUsuario extends JFrame {
         // FIN PANEL INICIO-----------------------------------------
 
         // PANEL CONFIGURACIONES--------------------------------------------
-
         // FIN PANEL CONFIGURACIONES-----------------------------------------
 
         // PANEL BUSQUEDA------------------------------------------
@@ -117,11 +126,17 @@ public class MenuUsuario extends JFrame {
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         // FIN PANEL BUSQUEDA--------------------------------
 
+        // 🔹 PANEL APARTADOS (nuevo)
+        areaApartados.setEditable(false);
+        areaApartados.setFont(new Font("Arial", Font.PLAIN, 14));
+        panelApartados.add(scrollApartados, BorderLayout.CENTER);
+
         // ADD
         // CONTENDOR---------------------------------------------------------------------
         panelContenedor.add(menuInicio, "Menu1");
         panelContenedor.add(scrollPane, "Menu2");
-        panelContenedor.add(panelConfiguraciones, "Menu3");
+        panelContenedor.add(panelApartados, "Menu3"); // 🔹 agregado
+        panelContenedor.add(panelConfiguraciones, "Menu4"); // 🔹 cambio de índice para coherencia
 
         // ADD
         getContentPane().add(panelIzquierdo, BorderLayout.WEST);// panel izquierdo
@@ -154,34 +169,63 @@ public class MenuUsuario extends JFrame {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                // TODO Auto-generated method stub
                 throw new UnsupportedOperationException("Unimplemented method 'mousePressed'");
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                // TODO Auto-generated method stub
                 throw new UnsupportedOperationException("Unimplemented method 'mouseReleased'");
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                // TODO Auto-generated method stub
                 throw new UnsupportedOperationException("Unimplemented method 'mouseEntered'");
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                // TODO Auto-generated method stub
                 throw new UnsupportedOperationException("Unimplemented method 'mouseExited'");
             }
             
         });
         
+        // 🔹 inicializar algunos libros de ejemplo
+        inicializarLibros();
 
+        // 🔹 conectar el panel de búsqueda con los libros
+        menubusqueda.setListaLibros(listaLibros, this);
+
+        // 🔹 botones de navegación
         botoncambio.addActionListener(e -> cardBusqueda.show(panelContenedor, "Menu1"));
         botoncambio2.addActionListener(e -> cardBusqueda.show(panelContenedor, "Menu2"));
-        botoncambio3.addActionListener(e -> cardBusqueda.show(panelContenedor, "Menu3"));
+        botoncambio3.addActionListener(e -> {
+            actualizarLibrosApartados();
+            cardBusqueda.show(panelContenedor, "Menu3");
+        });
+        botoncambio4.addActionListener(e -> cardBusqueda.show(panelContenedor, "Menu4"));
+    }
 
+    // 🔹 agregado: método para inicializar libros de ejemplo
+    private void inicializarLibros() {
+        listaLibros.add(new Libro("El Principito", "Antoine de Saint-Exupéry"));
+        listaLibros.add(new Libro("Cien años de soledad", "Gabriel García Márquez"));
+        listaLibros.add(new Libro("1984", "George Orwell"));
+        listaLibros.add(new Libro("Don Quijote", "Miguel de Cervantes"));
+    }
+
+    // 🔹 agregado: método para actualizar la vista de libros apartados
+    public void actualizarLibrosApartados() {
+        if (usuarioActual == null) return;
+        StringBuilder sb = new StringBuilder("📚 Libros apartados por: " + usuarioActual.getNombre() + "\n\n");
+        for (Libro libro : usuarioActual.getLibrosApartados()) {
+            sb.append(libro.toString()).append("\n");
+        }
+        areaApartados.setText(sb.toString());
+    }
+
+    // 🔹 agregado: asignar usuario actual
+    public void setUsuarioActual(Usuario usuario) {
+        this.usuarioActual = usuario;
     }
 }
+
