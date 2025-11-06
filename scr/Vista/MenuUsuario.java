@@ -193,8 +193,7 @@ public class MenuUsuario extends JFrame {
         inicializarLibros();
 
         // 🔹 conectar el panel de búsqueda con los libros
-        menubusqueda.setListaLibros(listaLibros, this);
-
+        menubusqueda.setListaLibros(listaLibros);
         // 🔹 botones de navegación
         botoncambio.addActionListener(e -> cardBusqueda.show(panelContenedor, "Menu1"));
         botoncambio2.addActionListener(e -> cardBusqueda.show(panelContenedor, "Menu2"));
