@@ -1,0 +1,9 @@
+{
+    "java.project.sourcePaths": [
+        "BibliotecaUVG2-master"
+    ],
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ]
+
+}
